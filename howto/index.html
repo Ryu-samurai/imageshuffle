@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>使い方 - 画像しゃっふる</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    line-height: 1.8;
+    color: #333;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 24px 16px 60px;
+    background-color: #fff;
+  }
+  h1 {
+    font-size: 1.5em;
+    border-bottom: 2px solid #4A90D9;
+    padding-bottom: 8px;
+    margin-top: 0;
+  }
+  h2 {
+    font-size: 1.2em;
+    color: #2c3e50;
+    margin-top: 2em;
+    border-left: 5px solid #4A90D9;
+    padding-left: 10px;
+  }
+  h3 {
+    font-size: 1.05em;
+    color: #2c3e50;
+    margin-top: 1.5em;
+  }
+  p {
+    margin: 0.8em 0;
+  }
+  ol, ul {
+    padding-left: 1.4em;
+  }
+  li {
+    margin: 0.5em 0;
+  }
+  .note {
+    background-color: #f5f8fc;
+    border-left: 4px solid #4A90D9;
+    padding: 10px 14px;
+    margin: 1em 0;
+    font-size: 0.95em;
+  }
+  .warning {
+    background-color: #fff8ec;
+    border-left: 4px solid #e0a800;
+    padding: 10px 14px;
+    margin: 1em 0;
+    font-size: 0.95em;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0;
+    font-size: 0.95em;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background-color: #f5f8fc;
+  }
+  footer {
+    margin-top: 3em;
+    padding-top: 1em;
+    border-top: 1px solid #eee;
+    font-size: 0.85em;
+    color: #888;
+  }
+</style>
+</head>
+<body>
+
+<h1>使い方</h1>
+<p>「画像しゃっふる」は、パスワードを使って画像をランダムに並び替え(シャッフル)し、同じパスワードで元通りに並び替え直す(復元)ことができるアプリです。</p>
+
+<div class="note">
+シャッフルした画像は、<strong>シャッフル時に使ったパスワードを入力しないと元に戻せません。</strong>パスワードは忘れないよう、大切に管理してください。
+</div>
+
+<h2>1. 画像を選択する</h2>
+<ol>
+  <li>「<strong>画像を選択</strong>」ボタンをタップします。</li>
+  <li>端末内のギャラリーから、処理したい画像を選びます。</li>
+  <li>選択すると画像が画面上部にプレビュー表示されます。</li>
+</ol>
+<div class="note">
+以前このアプリで保存した「シャッフル済み」や「復元済み」の画像を選んだ場合、プレビューには専用のアイコン画像が表示されます(画像そのものが乱れて見えてしまうのを防ぐためです)。中身は正しく読み込まれていますので、そのまま操作を続けて問題ありません。
+</div>
+
+<h2>2. モードを選ぶ</h2>
+<p>「モード」欄で、以下のどちらかを選択します。</p>
+<table>
+  <tr><th>モード</th><th>内容</th></tr>
+  <tr><td><strong>シャッフル</strong></td><td>選択した画像を、パスワードをもとにランダムな並び順に変換します。</td></tr>
+  <tr><td><strong>復元</strong></td><td>シャッフル済みの画像を、パスワードをもとに元の並び順に戻します。</td></tr>
+</table>
+
+<h2>3. 設定を行う</h2>
+
+<h3>パスワード</h3>
+<ul>
+  <li>「パスワード」欄に、シャッフル・復元に使う文字列を入力します。</li>
+  <li>復元したい場合は、<strong>シャッフル時に入力したものと同じパスワード</strong>を入力する必要があります。</li>
+  <li>右側の「保存」にチェックを入れておくと、次回アプリ起動時にパスワードが自動的に入力された状態になります。毎回入力する手間を省きたい場合にご利用ください。</li>
+</ul>
+<div class="warning">
+チェックを入れた場合、パスワードは端末内に保存されます。他の人と端末を共有している場合はご注意ください。
+</div>
+
+<h3>画像サイズ(シャッフル時のみ)</h3>
+<ul>
+  <li><strong>元サイズ</strong>:読み込んだ画像そのままのサイズでシャッフルします。画像によっては処理に時間がかかる場合があります。</li>
+  <li><strong>縮小(高速)</strong>:画像を縮小したうえでシャッフルします。処理が速くなり、保存後のファイルサイズも小さくなります。</li>
+</ul>
+<p>この設定は「復元」モードを選んでいるときは使用しないため、灰色表示になり選べません。</p>
+
+<h2>4. 実行する</h2>
+<ol>
+  <li>画像・モード・パスワードの入力が済んだら、「<strong>▶ 実行する</strong>」ボタンをタップします。</li>
+  <li>処理中は画面に「処理中...」の表示が出ます。そのままお待ちください。</li>
+  <li>処理が終わると、「結果プレビュー」欄に変換後の画像が表示されます。</li>
+</ol>
+<div class="warning">
+画像を選択していない場合、またはパスワードが未入力の場合、「実行する」ボタンを押しても何も起こりません。まずは画像の選択とパスワードの入力を確認してください。
+</div>
+
+<h2>5. 結果を保存・やり直す</h2>
+<ul>
+  <li><strong>保存する</strong>:結果プレビューの画像を、端末のギャラリー(アルバム内の「Shuffle」フォルダ)に保存します。ファイル名の先頭には、シャッフルなら「shuffled_」、復元なら「restored_」が付き、日時が記録されます。</li>
+  <li><strong>再実行</strong>:同じ設定のまま、もう一度実行します。</li>
+</ul>
+
+<h2>6. メニュー(☰)について</h2>
+<p>画面右上の「☰」ボタンをタップすると、以下の項目が表示されます。</p>
+<ul>
+  <li><strong>使い方</strong>:簡単な使い方の説明が表示されます。</li>
+  <li><strong>プライバシーポリシー</strong>:個人情報の取り扱いについて確認できます。</li>
+  <li><strong>アプリ情報</strong>:バージョン情報や開発者情報、お問い合わせ先を確認できます。</li>
+</ul>
+
+<footer>
+  画像しゃっふる
+</footer>
+
+</body>
+</html>

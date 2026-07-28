@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>使い方 - 画像しゃっふる</title>
+<title>使い方 / How to Use - 画像しゃっふる</title>
 <style>
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
@@ -77,9 +77,41 @@
     font-size: 0.85em;
     color: #888;
   }
+
+  /* Language toggle */
+  .lang-toggle {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .lang-btn {
+    background: #f5f8fc;
+    color: #555;
+    border: 1px solid #ccd9e8;
+    padding: 6px 18px;
+    border-radius: 18px;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .lang-btn.active {
+    background: #4A90D9;
+    color: #fff;
+    border-color: #4A90D9;
+  }
+  .lang-block { display: none; }
+  .lang-block.active { display: block; }
 </style>
 </head>
 <body>
+
+<div class="lang-toggle">
+  <button class="lang-btn active" id="btn-ja" onclick="setLang('ja')">日本語</button>
+  <button class="lang-btn" id="btn-en" onclick="setLang('en')">English</button>
+</div>
+
+<!-- ================= 日本語 ================= -->
+<div class="lang-block active" id="block-ja">
 
 <h1>使い方</h1>
 <p>「画像しゃっふる」は、パスワードを使って画像をランダムに並び替え(シャッフル)し、同じパスワードで元通りに並び替え直す(復元)ことができるアプリです。</p>
@@ -152,6 +184,101 @@
 <footer>
   画像しゃっふる
 </footer>
+
+</div>
+
+<!-- ================= English ================= -->
+<div class="lang-block" id="block-en">
+
+<h1>How to Use</h1>
+<p>"Image Shuffle" is an app that uses a password to randomly rearrange (shuffle) the pixels of an image, and can restore the original arrangement (restore) using the same password.</p>
+
+<div class="note">
+A shuffled image <strong>can only be restored by entering the same password that was used to shuffle it.</strong> Please keep your password safe and don't forget it.
+</div>
+
+<h2>1. Select an Image</h2>
+<ol>
+  <li>Tap the "<strong>Select Image</strong>" button.</li>
+  <li>Choose the image you want to process from your device's gallery.</li>
+  <li>Once selected, the image is shown as a preview at the top of the screen.</li>
+</ol>
+<div class="note">
+If you select an image that was previously "shuffled" or "restored" and saved by this app, the preview will show a dedicated icon instead of the image itself (this is to prevent the scrambled image from being confusing to look at). The file is still loaded correctly, so you can continue as normal.
+</div>
+
+<h2>2. Choose a Mode</h2>
+<p>In the "Mode" field, select one of the following.</p>
+<table>
+  <tr><th>Mode</th><th>Description</th></tr>
+  <tr><td><strong>Shuffle</strong></td><td>Converts the selected image into a random pixel arrangement based on the password.</td></tr>
+  <tr><td><strong>Restore</strong></td><td>Restores a previously shuffled image to its original arrangement based on the password.</td></tr>
+</table>
+
+<h2>3. Configure Settings</h2>
+
+<h3>Password</h3>
+<ul>
+  <li>Enter the string you want to use for shuffling/restoring in the "Password" field.</li>
+  <li>To restore an image, you must enter <strong>the same password that was used when it was shuffled</strong>.</li>
+  <li>Checking "Save" on the right will automatically fill in the password the next time you open the app, so you don't need to type it every time.</li>
+</ul>
+<div class="warning">
+If you enable this option, the password will be stored on your device. Please be cautious if you share your device with others.
+</div>
+
+<h3>Image Size (Shuffle mode only)</h3>
+<ul>
+  <li><strong>Original size</strong>: Shuffles the image at its original loaded size. Processing may take longer depending on the image.</li>
+  <li><strong>Downscale (fast)</strong>: Shuffles the image after downscaling it. Processing is faster and the resulting file size is smaller.</li>
+</ul>
+<p>This setting is not used in "Restore" mode, so it appears grayed out and cannot be selected.</p>
+
+<h2>4. Run</h2>
+<ol>
+  <li>Once you've selected an image, mode, and entered a password, tap the "<strong>▶ Run</strong>" button.</li>
+  <li>A "Processing..." indicator will appear while the operation runs. Please wait.</li>
+  <li>When finished, the converted image will appear in the "Result Preview" area.</li>
+</ol>
+<div class="warning">
+If no image is selected, or the password field is empty, tapping "Run" will do nothing. Please make sure you've selected an image and entered a password first.
+</div>
+
+<h2>5. Save or Retry</h2>
+<ul>
+  <li><strong>Save</strong>: Saves the resulting preview image to your device's gallery (in a "Shuffle" folder within your albums). Filenames are prefixed with "shuffled_" for shuffle results or "restored_" for restore results, along with a timestamp.</li>
+  <li><strong>Retry</strong>: Runs the operation again with the same settings.</li>
+</ul>
+
+<h2>6. About the Menu (☰)</h2>
+<p>Tapping the "☰" button in the top-right corner shows the following items.</p>
+<ul>
+  <li><strong>How to Use</strong>: Shows this usage guide.</li>
+  <li><strong>Privacy Policy</strong>: View information on how personal data is handled.</li>
+  <li><strong>App Info</strong>: View version information, developer information, and contact details.</li>
+</ul>
+
+<footer>
+  Image Shuffle
+</footer>
+
+</div>
+
+<script>
+  function setLang(lang) {
+    const isJa = lang === 'ja';
+
+    document.getElementById('block-ja').classList.toggle('active', isJa);
+    document.getElementById('block-en').classList.toggle('active', !isJa);
+    document.getElementById('btn-ja').classList.toggle('active', isJa);
+    document.getElementById('btn-en').classList.toggle('active', !isJa);
+
+    document.documentElement.lang = lang;
+    document.title = isJa
+      ? '使い方 - 画像しゃっふる'
+      : 'How to Use - Image Shuffle';
+  }
+</script>
 
 </body>
 </html>
